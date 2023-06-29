@@ -9,7 +9,7 @@ npm i
 hh compile
 ```
 
-# Usage
+## Usage
 
 Deploy:
 
