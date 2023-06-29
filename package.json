@@ -1,0 +1,27 @@
+{
+  "name": "hardhat-smartcontract-lottery-ts",
+  "version": "1.0.0",
+  "description": "Hardhat smart contract lottery using TS and latest versions",
+  "author": "Alexander <i@shagg.ru>",
+  "devDependencies": {
+    "@chainlink/contracts": "^0.6.1",
+    "@nomicfoundation/hardhat-ethers": "^3.0.3",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.43.0",
+    "hardhat": "^2.16.0",
+    "hardhat-deploy": "^0.11.34",
+    "hardhat-gas-reporter": "^1.0.9",
+    "hardhat-shorthand": "^1.0.0"
+  },
+  "scripts": {
+    "hh": "hh",
+    "compile": "rm -rf artifacts typechain-types && hh compile",
+    "test": "npm run test:unit && npm run test:staging",
+    "test:unit": "hh test",
+    "test:staging": "hh test --network sepolia"
+  }
+}
