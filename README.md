@@ -1,4 +1,4 @@
-# Hardhat Smartcontract Lottery (Raffle) Using TypeScript and latest version
+# Hardhat Smartcontract Lottery (Raffle) Using TypeScript and latest versions of everything
 
 ## Quickstart
 
