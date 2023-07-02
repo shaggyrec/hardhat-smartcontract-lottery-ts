@@ -24,12 +24,15 @@ const { developmentChains, networks: networkConfig } = config;
             accounts = await ethers.getSigners(); // could also do with getNamedAccounts
             player = accounts[1];
             await deployments.fixture(['mocks', 'raffle']);
-            vrfCoordinatorV2Mock = await ethers.getContract('VRFCoordinatorV2Mock');
-            raffleContract = await ethers.getContract('Raffle');
+            vrfCoordinatorV2Mock = await ethers.getContract<VRFCoordinatorV2Mock>('VRFCoordinatorV2Mock');
+            raffleContract = await ethers.getContract<Raffle>('Raffle');
             raffle = raffleContract.connect(player);
             raffleEntranceFee = await raffle.getEntranceFee();
             interval = Number(await raffle.getInterval());
             raffleAddress = await raffle.getAddress();
+            raffle.once(raffle.getEvent('RaffleEnter'), () => {
+                console.log('RaffleEnter event');
+            });
         });
 
         describe('constructor', function() {
@@ -143,6 +146,9 @@ const { developmentChains, networks: networkConfig } = config;
             });
             // This test is too big...
             it.skip('picks a winner, resets, and sends money', async () => {
+                raffle.on(raffle.getEvent('RaffleEnter'), () => {
+                    console.log('RaffleEnter event');
+                });
                 const additionalEntrances = 3;
                 const startingIndex = 2;
                 for (let i = startingIndex; i < startingIndex + additionalEntrances; i++) {
@@ -154,7 +160,7 @@ const { developmentChains, networks: networkConfig } = config;
                 // This will be more important for our staging tests...
                 // eslint-disable-next-line no-async-promise-executor
                 await new Promise<void>(async (resolve, reject) => {
-                    raffle.on(raffle.getEvent('WinnerPicked'), async () => {
+                    raffle.once(raffle.getEvent('WinnerPicked'), async () => {
                         console.log('WinnerPicked fired');
                         // assert throws an error if it fails, so we need to wrap
                         // it in a try/catch so that the promise returns event

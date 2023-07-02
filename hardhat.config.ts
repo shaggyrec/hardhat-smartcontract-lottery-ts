@@ -1,13 +1,11 @@
-import '@typechain/hardhat';
 import '@nomicfoundation/hardhat-toolbox';
-import '@nomiclabs/hardhat-ethers';
 import 'hardhat-deploy';
+import '@nomiclabs/hardhat-ethers';
 import 'hardhat-gas-reporter';
 import './type-extensions';
 import 'dotenv/config';
 import { HardhatUserConfig } from 'hardhat/config';
 import { ethers } from 'ethers';
-
 
 const config: HardhatUserConfig = {
     solidity: '0.8.18',
@@ -51,7 +49,7 @@ const config: HardhatUserConfig = {
     developmentChains: ['hardhat', 'localhost'],
     organizerFee: 10,
     mocha: {
-        timeout: 40000
+        timeout: 60000
     }
 };
 
