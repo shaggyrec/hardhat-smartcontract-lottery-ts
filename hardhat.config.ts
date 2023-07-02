@@ -1,7 +1,6 @@
 import '@typechain/hardhat';
 import '@nomicfoundation/hardhat-toolbox';
 import '@nomiclabs/hardhat-ethers';
-import '@nomicfoundation/hardhat-ethers';
 import 'hardhat-deploy';
 import 'hardhat-gas-reporter';
 import './type-extensions';
