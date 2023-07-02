@@ -100,3 +100,7 @@ However, you can manual verify with:
 ```
 hh verify --constructor-args arguments.ts DEPLOYED_CONTRACT_ADDRESS
 ```
+
+## TODO
+
+- complete tests with events
