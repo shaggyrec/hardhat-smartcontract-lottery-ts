@@ -20,8 +20,9 @@
   "scripts": {
     "hh": "hh",
     "compile": "rm -rf artifacts typechain-types && hh compile",
-    "test": "npm run test:unit && npm run test:staging",
+    "test": "npm run test:unit && npm run test:staging && npm run lint",
     "test:unit": "hh test",
-    "test:staging": "hh test --network sepolia"
+    "test:staging": "hh test --network sepolia",
+    "lint": "eslint"
   }
 }
