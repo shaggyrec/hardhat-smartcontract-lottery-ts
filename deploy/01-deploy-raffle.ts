@@ -3,7 +3,7 @@ import { config, network } from 'hardhat';
 import { DeployFunction } from 'hardhat-deploy/dist/types';
 import verify from '../utils/verify';
 import { VRFCoordinatorV2Mock } from '../typechain-types';
-import { Contract, EventLog } from 'ethers';
+import { EventLog } from 'ethers';
 
 const deployRaffle: DeployFunction = async function ({ getNamedAccounts, deployments, ethers }: HardhatRuntimeEnvironment) {
     const { deploy, log } = deployments;
